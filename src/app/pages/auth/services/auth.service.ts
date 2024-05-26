@@ -23,14 +23,14 @@ export class AuthService {
 
   initAuth() {
     if (localStorage.getItem("token")) {
-      this.user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") ?? "") : null; 
+      this.user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") ?? "") : null;
       this.token = localStorage.getItem("token");
     }
   }
 
   login(email: string, password: string) {
-    return this.http.post(this.URL_BASE + "/login_tienda", {email, password}).pipe(
-      map((res:any) => {
+    return this.http.post(this.URL_BASE + "/login_tienda", { email, password }).pipe(
+      map((res: any) => {
         console.log(res);
         const result = this.saveLocalStorage(res);
         return result;

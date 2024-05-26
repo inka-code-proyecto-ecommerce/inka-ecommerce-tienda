@@ -22,7 +22,7 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService, 
+    private toastr: ToastrService,
   ) {
 
   }
