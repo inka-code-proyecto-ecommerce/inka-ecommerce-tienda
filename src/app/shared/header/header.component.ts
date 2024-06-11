@@ -65,7 +65,6 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    console.log(this.user);
     this.cartService.currentDataCart$.subscribe((resp:any) => {
       // console.log(resp);
       this.listCarts = resp;

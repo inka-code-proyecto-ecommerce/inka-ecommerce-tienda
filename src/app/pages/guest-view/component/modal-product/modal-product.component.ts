@@ -6,23 +6,23 @@ import { CartService } from '../../../home/service/cart.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
-declare function MODAL_PRODUCT_DETAIL([]): any;
-declare function MODAL_QUANTITY([]): any;
-declare var $: any;
+declare function MODAL_PRODUCT_DETAIL([]):any;
+declare function MODAL_QUANTITY([]):any;
+declare var $:any;
 @Component({
   selector: 'app-modal-product',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './modal-product.component.html',
   styleUrl: './modal-product.component.css'
 })
 export class ModalProductComponent {
 
-  @Input() product_selected: any;
-  variation_selected: any;
-  sub_variation_selected: any;
+  @Input() product_selected:any;
+  variation_selected:any;
+  sub_variation_selected:any;
 
-  currency: string = 'PEN';
+  currency:string = 'PEN';
   constructor(
     private toastr: ToastrService,
     private router: Router,
@@ -45,42 +45,42 @@ export class ModalProductComponent {
     }, 50);
   }
 
-  getNewTotal(PRODUCT: any, DISCOUNT_FLASH_P: any) {
-    if (this.currency == 'PEN') {
-      if (DISCOUNT_FLASH_P.type_discount == 1) {//% DE DESCUENT0 50
+  getNewTotal(PRODUCT:any,DISCOUNT_FLASH_P:any){
+    if(this.currency == 'PEN'){
+      if(DISCOUNT_FLASH_P.type_discount == 1){//% DE DESCUENT0 50
         // 100 / 100*(50*0.01) 100*0.5=50
-        return (PRODUCT.price_pen - PRODUCT.price_pen * (DISCOUNT_FLASH_P.discount * 0.01)).toFixed(2)
-      } else {//-PEN/-USD 
+        return (PRODUCT.price_pen - PRODUCT.price_pen*(DISCOUNT_FLASH_P.discount*0.01)).toFixed(2)
+      }else{//-PEN/-USD 
         return (PRODUCT.price_pen - DISCOUNT_FLASH_P.discount).toFixed(2);
       }
-    } else {
-      if (DISCOUNT_FLASH_P.type_discount == 1) {//% DE DESCUENT0 50
+    }else{
+      if(DISCOUNT_FLASH_P.type_discount == 1){//% DE DESCUENT0 50
         // 100 / 100*(50*0.01) 100*0.5=50
-        return (PRODUCT.price_usd - PRODUCT.price_usd * (DISCOUNT_FLASH_P.discount * 0.01)).toFixed(2)
-      } else {//-PEN/-USD 
+        return (PRODUCT.price_usd - PRODUCT.price_usd*(DISCOUNT_FLASH_P.discount*0.01)).toFixed(2)
+      }else{//-PEN/-USD 
         return (PRODUCT.price_usd - DISCOUNT_FLASH_P.discount).toFixed(2);
       }
     }
   }
 
-  getTotalPriceProduct(PRODUCT: any) {
-    if (PRODUCT.discount_g) {
-      return this.getNewTotal(PRODUCT, PRODUCT.discount_g);
+  getTotalPriceProduct(PRODUCT:any){
+    if(PRODUCT.discount_g){
+      return this.getNewTotal(PRODUCT,PRODUCT.discount_g);
     }
-    if (this.currency == 'PEN') {
+    if(this.currency == 'PEN'){
       return PRODUCT.price_pen;
-    } else {
+    }else{
       return PRODUCT.price_usd;
     }
   }
-  getTotalCurrency(PRODUCT: any) {
-    if (this.currency == 'PEN') {
+  getTotalCurrency(PRODUCT:any){
+    if(this.currency == 'PEN'){
       return PRODUCT.price_pen;
-    } else {
+    }else{
       return PRODUCT.price_usd;
     }
   }
-  selectedVariation(variation: any) {
+  selectedVariation(variation:any){
     this.variation_selected = null;
     this.sub_variation_selected = null;
     setTimeout(() => {
@@ -88,45 +88,45 @@ export class ModalProductComponent {
       MODAL_PRODUCT_DETAIL($);
     }, 50);
   }
-  selectedSubVariation(subvariation: any) {
+  selectedSubVariation(subvariation:any){
     this.sub_variation_selected = null;
     setTimeout(() => {
       this.sub_variation_selected = subvariation;
     }, 50);
   }
-  addCart() {
-    if (!this.cartService.authService.user) {
-      this.toastr.error("Validacion", "Ingrese a la tienda");
+  addCart(){
+    if(!this.cartService.authService.user){
+      this.toastr.error("Validacion","Ingrese a la tienda");
       this.router.navigateByUrl("/login");
       return;
     }
 
     let product_variation_id = null;
-    if (this.product_selected.variations.length > 0) {
-      if (!this.variation_selected) {
-        this.toastr.error("Validacion", "Necesitas seleccionar una variación");
+    if(this.product_selected.variations.length > 0){
+      if(!this.variation_selected){
+        this.toastr.error("Validacion","Necesitas seleccionar una variación");
         return;
       }
-      if (this.variation_selected && this.variation_selected.subvariations.length > 0) {
-        if (!this.sub_variation_selected) {
-          this.toastr.error("Validacion", "Necesitas seleccionar una SUB variación");
+      if(this.variation_selected && this.variation_selected.subvariations.length > 0){
+        if(!this.sub_variation_selected){
+          this.toastr.error("Validacion","Necesitas seleccionar una SUB variación");
           return;
         }
       }
     }
 
-    if (this.product_selected.variations.length > 0 && this.variation_selected &&
-      this.variation_selected.subvariations.length == 0) {
+    if(this.product_selected.variations.length > 0 && this.variation_selected &&
+      this.variation_selected.subvariations.length == 0){
       product_variation_id = this.variation_selected.id;
     }
-    if (this.product_selected.variations.length > 0 && this.variation_selected &&
-      this.variation_selected.subvariations.length > 0) {
+    if(this.product_selected.variations.length > 0 && this.variation_selected &&
+      this.variation_selected.subvariations.length > 0){
       product_variation_id = this.sub_variation_selected.id;
     }
 
     let discount_g = null;
 
-    if (this.product_selected.discount_g) {
+    if(this.product_selected.discount_g){
       discount_g = this.product_selected.discount_g;
     }
 
@@ -139,21 +139,21 @@ export class ModalProductComponent {
       code_discount: discount_g ? discount_g.code : null,
       product_variation_id: product_variation_id,
       quantity: $("#tp-cart-input-val").val(),
-      price_unit: this.currency == 'PEN' ? this.product_selected.price_pen : this.product_selected.price_usd,
+      price_unit:this.currency == 'PEN' ? this.product_selected.price_pen : this.product_selected.price_usd,
       subtotal: this.getTotalPriceProduct(this.product_selected),
-      total: this.getTotalPriceProduct(this.product_selected) * $("#tp-cart-input-val").val(),
+      total: this.getTotalPriceProduct(this.product_selected)*$("#tp-cart-input-val").val(),
       currency: this.currency,
     }
 
-    this.cartService.registerCart(data).subscribe((resp: any) => {
+    this.cartService.registerCart(data).subscribe((resp:any) => {
       console.log(resp);
-      if (resp.message == 403) {
-        this.toastr.error("Validacion", resp.message_text);
-      } else {
+      if(resp.message == 403){
+        this.toastr.error("Validacion",resp.message_text);
+      }else{
         this.cartService.changeCart(resp.cart);
-        this.toastr.success("Exitos", "El producto se agrego al carrito de compra");
+        this.toastr.success("Exitos","El producto se agrego al carrito de compra");
       }
-    }, err => {
+    },err => {
       console.log(err);
     })
   }
