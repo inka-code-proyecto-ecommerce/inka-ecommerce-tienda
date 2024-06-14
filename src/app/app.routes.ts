@@ -38,4 +38,29 @@ export const routes: Routes = [
         path: 'carrito-de-compra',
         component: CartComponent
     },
+    {
+        canActivate: [authGuard],
+        path: 'proceso-de-pago',
+        component: CheckoutComponent
+    },
+    {
+        canActivate: [authGuard],
+        path: 'gracias-por-tu-compra/:order',
+        component: ThankYouOrderComponent
+    },
+     /* {
+        canActivate: [authGuard],
+        path: 'mercado-pago-success',
+        component: CheckoutSuccessComponent
+    },
+    {
+        canActivate: [authGuard],
+        path: 'mercado-pago-failure',
+        component: CheckoutFailureComponent
+    },
+    {
+        canActivate: [authGuard],
+        path: 'mercado-pago-pending',
+        component: CheckoutPendingComponent
+    }, */
 ];
