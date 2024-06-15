@@ -46,7 +46,7 @@ export class FilterAdvanceComponent {
   ) {
 
     this.homeService.getConfigFilter().subscribe((resp: any) => {
-      // console.log(resp);
+      //console.log(resp);
       this.Categories = resp.categories;
       this.Colors = resp.colors;
       this.Brands = resp.brands;
@@ -58,7 +58,7 @@ export class FilterAdvanceComponent {
     })
 
     this.homeService.filterAdvanceProduct({ search: this.search, }).subscribe((resp: any) => {
-      console.log(resp);
+      // console.log(resp);
       this.PRODUCTS = resp.products.data;
     })
 
@@ -83,6 +83,23 @@ export class FilterAdvanceComponent {
 
   ngOnInit(): void {
     this.currency = this.cookieService.get("currency") ? this.cookieService.get("currency") : 'PEN';
+    if (typeof $ !== "undefined") {
+      $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 2000,
+        values: [200, 500],
+        slide: (event: any, ui: any) => {
+          $("#amount").val(this.currency + " " + ui.values[0] + " - " + this.currency + " " + ui.values[1]);
+          this.min_price = ui.values[0];
+          this.max_price = ui.values[1];
+        }, stop: () => {
+          this.filterAdvanceProduct();
+        }
+      });
+      $("#amount").val(this.currency + " " + $("#slider-range").slider("values", 0) +
+        " - " + this.currency + " " + $("#slider-range").slider("values", 1));
+    }
   }
 
   addCompareProduct(TRADING_PRODUCT: any) {
@@ -157,7 +174,7 @@ export class FilterAdvanceComponent {
       max_price: this.max_price,
       currency: this.currency,
       options_aditional: this.options_aditional,
-      search: this.search,
+      search: this.search, 
     }
     this.homeService.filterAdvanceProduct(data).subscribe((resp: any) => {
       console.log(resp);

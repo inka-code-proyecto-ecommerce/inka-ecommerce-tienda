@@ -32,6 +32,8 @@ export class LandingProductComponent {
 
   currency:string = 'PEN';
   plus:number = 0;
+
+  reviews:any = [];
   constructor(
     public homeService: HomeService,
     public activedRoute: ActivatedRoute,
@@ -56,6 +58,7 @@ export class LandingProductComponent {
             this.PRODUCT_SELECTED = resp.product;
             this.PRODUCT_RELATEDS = resp.product_relateds.data;
             this.DISCOUNT_CAMPAING = resp.discount_campaing;
+            this.reviews = resp.reviews;
             if(this.DISCOUNT_CAMPAING){
               this.PRODUCT_SELECTED.discount_g = this.DISCOUNT_CAMPAING;
             } 
@@ -81,6 +84,23 @@ export class LandingProductComponent {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
     
+  }
+  
+  addCompareProduct(TRADING_PRODUCT:any){
+    let COMPARES = localStorage.getItem("compares") ? JSON.parse(localStorage.getItem("compares") ?? '') : [];
+
+    let INDEX = COMPARES.findIndex((item:any) => item.id == TRADING_PRODUCT.id);
+    if(INDEX != -1){
+      this.toastr.error("Validacion","El producto ya existe en la lista");
+      return;
+    }
+    COMPARES.push(TRADING_PRODUCT);
+    this.toastr.success("Exito","El producto se agrego a lista de comparacion");
+
+    localStorage.setItem("compares",JSON.stringify(COMPARES));
+    if(COMPARES.length > 1){
+      this.router.navigateByUrl("/compare-product");
+    }
   }
 
   getNewTotal(PRODUCT:any,DISCOUNT_FLASH_P:any){

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../auth/services/auth.service';
 
+
 @Component({
   selector: 'app-profile-client',
   standalone: true,
@@ -24,7 +25,7 @@ export class ProfileClientComponent {
   constructor(
     public authService: AuthService
   ) {
-
+    
   }
 
   selectTab(val:number){

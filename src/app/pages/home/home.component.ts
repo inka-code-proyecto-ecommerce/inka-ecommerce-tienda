@@ -53,7 +53,7 @@ export class HomeComponent {
   ) {
     // afterNextRender(() => {
       this.homeService.home().subscribe((resp:any) => {
-        // console.log(resp);
+        console.log(resp);
         this.SLIDERS = resp.sliders_principal;
         this.CATEGORIES_RANDOMS = resp.categories_randoms;
         this.TRADING_PRODUCT_NEW = resp.product_tranding_new.data;
@@ -100,6 +100,22 @@ export class HomeComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.currency = this.cookieService.get("currency") ? this.cookieService.get("currency") : 'PEN';
+  }
+  addCompareProduct(TRADING_PRODUCT:any){
+    let COMPARES = localStorage.getItem("compares") ? JSON.parse(localStorage.getItem("compares") ?? '') : [];
+
+    let INDEX = COMPARES.findIndex((item:any) => item.id == TRADING_PRODUCT.id);
+    if(INDEX != -1){
+      this.toastr.error("Validacion","El producto ya existe en la lista");
+      return;
+    }
+    COMPARES.push(TRADING_PRODUCT);
+    this.toastr.success("Exito","El producto se agrego a lista de comparacion");
+
+    localStorage.setItem("compares",JSON.stringify(COMPARES));
+    if(COMPARES.length > 1){
+      this.router.navigateByUrl("/compare-product");
+    }
   }
 
   addCart(PRODUCT:any) {

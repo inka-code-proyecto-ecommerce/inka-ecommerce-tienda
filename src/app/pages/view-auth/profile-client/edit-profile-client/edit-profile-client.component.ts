@@ -60,18 +60,6 @@ export class EditProfileClientComponent {
       this.toaster.error("Validación","Es necesario ingresar un nombre y un correo electronico");
       return;
     }
-    // let data = {
-    //   name: this.name,
-    //   surname: this.surname,
-    //   email: this.email,
-    //   phone: this.phone,
-    //   bio: this.bio,
-    //   fb: this.fb,
-    //   tw: this.tw,
-    //   sexo: this.sexo,
-    //   address_city: this.address_city,
-    // }
-
     let formData = new FormData();
     formData.append("name",this.name);
     formData.append("surname",this.surname);

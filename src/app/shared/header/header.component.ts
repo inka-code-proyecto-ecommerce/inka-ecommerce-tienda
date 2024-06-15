@@ -25,6 +25,7 @@ export class HeaderComponent {
   listCarts:any = [];
   totalCarts:number = 0;
   isLoading:boolean = false;
+  searchT:string = '';
   constructor(
     public homeService: HomeService,
     public cookieService: CookieService,
@@ -65,13 +66,21 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log(this.user);
     this.cartService.currentDataCart$.subscribe((resp:any) => {
       // console.log(resp);
       this.listCarts = resp;
       this.totalCarts = this.listCarts.reduce((sum:number, item:any) => sum + item.total, 0);
     })
   }
-  
+  logout(){
+    this.cartService.authService.logout();
+    setTimeout(() => {
+      window.location.reload()
+    }, 50);
+  }
   deleteCart(CART:any) {
     this.cartService.deleteCart(CART.id).subscribe((resp:any) => {
       this.toastr.info("Eliminación","Se elimino el producto "+CART.product.title + " del carrito de compra");
@@ -98,5 +107,9 @@ export class HeaderComponent {
         window.location.reload();
       }, 25);
     }
+  }
+
+  searchProduct(){
+    window.location.href = "/productos-busqueda?search="+this.searchT;
   }
 }
