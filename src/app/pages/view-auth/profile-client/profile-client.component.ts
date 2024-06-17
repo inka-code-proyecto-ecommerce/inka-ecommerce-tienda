@@ -8,31 +8,30 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../auth/services/auth.service';
 
-
 @Component({
   selector: 'app-profile-client',
   standalone: true,
-  imports: [EditProfileClientComponent,AddressProfileClientComponent,
-      OrdersProfileClientComponent,PasswordProfileClientComponent,CommonModule,FormsModule,RouterModule
-          ],
+  imports: [EditProfileClientComponent, AddressProfileClientComponent,
+    OrdersProfileClientComponent, PasswordProfileClientComponent, CommonModule, FormsModule, RouterModule
+  ],
   templateUrl: './profile-client.component.html',
   styleUrl: './profile-client.component.css'
 })
 export class ProfileClientComponent {
 
-  selected_tab:number = 0;
+  selected_tab: number = 0;
 
   constructor(
     public authService: AuthService
   ) {
-    
+
   }
 
-  selectTab(val:number){
+  selectTab(val: number) {
     this.selected_tab = val;
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
     setTimeout(() => {
       window.location.reload()

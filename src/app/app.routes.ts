@@ -17,73 +17,73 @@ import { CompareProductComponent } from './pages/guest-view/compare-product/comp
 import { authGuard } from './pages/auth/services/auth.guard';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        // canActivate: [authGuard],
-        path: 'register',
-        component: RegisterComponent
-    },
-    {
-        path: 'cambiar-credenciales',
-        component: ForgotPasswordComponent
-    }
-    ,
-    {
-        path: 'producto/:slug',
-        component: LandingProductComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'carrito-de-compra',
-        component: CartComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'proceso-de-pago',
-        component: CheckoutComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'gracias-por-tu-compra/:order',
-        component: ThankYouOrderComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'mercado-pago-success',
-        component: CheckoutSuccessComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'mercado-pago-failure',
-        component: CheckoutFailureComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'mercado-pago-pending',
-        component: CheckoutPendingComponent
-    },
-    {
-        canActivate: [authGuard],
-        path: 'perfil-del-cliente',
-        component: ProfileClientComponent,
-    },
-    {
-        path: 'productos-busqueda',
-        component: FilterAdvanceComponent,
-    },
-    {
-        path: 'discount/:code',
-        component: CampaingLinkComponent,
-    },
-    {
-        path: 'compare-product',
-        component: CompareProductComponent,
-    },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    // canActivate: [authGuard],
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'cambiar-credenciales',
+    component: ForgotPasswordComponent
+  }
+  ,
+  {
+    path: 'producto/:slug',
+    component: LandingProductComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'carrito-de-compra',
+    component: CartComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'proceso-de-pago',
+    component: CheckoutComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'gracias-por-tu-compra/:order',
+    component: ThankYouOrderComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'mercado-pago-success',
+    component: CheckoutSuccessComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'mercado-pago-failure',
+    component: CheckoutFailureComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'mercado-pago-pending',
+    component: CheckoutPendingComponent
+  },
+  {
+    canActivate: [authGuard],
+    path: 'perfil-del-cliente',
+    component: ProfileClientComponent,
+  },
+  {
+    path: 'productos-busqueda',
+    component: FilterAdvanceComponent,
+  },
+  {
+    path: 'discount/:code',
+    component: CampaingLinkComponent,
+  },
+  {
+    path: 'compare-product',
+    component: CompareProductComponent,
+  },
 ];

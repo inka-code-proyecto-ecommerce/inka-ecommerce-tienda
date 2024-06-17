@@ -13,39 +13,39 @@ export class ProfileClientService {
     public http: HttpClient,
   ) { }
 
-  getInfoProfileClient(){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/profile_client/";
-    return this.http.get(URL,{headers: headers});
+  getInfoProfileClient() {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/profile_client/";
+    return this.http.get(URL, { headers: headers });
   }
 
-  updateProfile(data:any){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/profile_client";
-    return this.http.post(URL,data,{headers: headers});
+  updateProfile(data: any) {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/profile_client";
+    return this.http.post(URL, data, { headers: headers });
   }
 
-  showUsers(){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/profile_client/me";
-    return this.http.get(URL,{headers: headers});
+  showUsers() {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/profile_client/me";
+    return this.http.get(URL, { headers: headers });
   }
 
-  showOrders(){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/profile_client/orders";
-    return this.http.get(URL,{headers: headers});
+  showOrders() {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/profile_client/orders";
+    return this.http.get(URL, { headers: headers });
   }
 
-  registerReview(data:any){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/reviews";
-    return this.http.post(URL,data,{headers: headers});
+  registerReview(data: any) {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/reviews";
+    return this.http.post(URL, data, { headers: headers });
   }
 
-  updateReview(review_id:string,data:any){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/reviews/"+review_id;
-    return this.http.put(URL,data,{headers: headers});
+  updateReview(review_id: string, data: any) {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/reviews/" + review_id;
+    return this.http.put(URL, data, { headers: headers });
   }
 }

@@ -13,27 +13,27 @@ export class UserAddressService {
     public http: HttpClient,
   ) { }
 
-  listAddress(){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/user_address/";
-    return this.http.get(URL,{headers: headers});
+  listAddress() {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/user_address/";
+    return this.http.get(URL, { headers: headers });
   }
 
-  registerAddress(data:any){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/user_address";
-    return this.http.post(URL,data,{headers: headers});
+  registerAddress(data: any) {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/user_address";
+    return this.http.post(URL, data, { headers: headers });
   }
 
-  updateAddress(addres_id:string,data:any){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/user_address/"+addres_id;
-    return this.http.put(URL,data,{headers: headers});
+  updateAddress(addres_id: string, data: any) {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/user_address/" + addres_id;
+    return this.http.put(URL, data, { headers: headers });
   }
 
-  deleteAddress(addres_id:string){
-    let headers = new HttpHeaders({'Authorization': 'Bearer '+this.authService.token});
-    let URL = URL_SERVICE+"/ecommerce/user_address/"+addres_id;
-    return this.http.delete(URL,{headers: headers});
+  deleteAddress(addres_id: string) {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.authService.token });
+    let URL = URL_SERVICE + "/ecommerce/user_address/" + addres_id;
+    return this.http.delete(URL, { headers: headers });
   }
 }

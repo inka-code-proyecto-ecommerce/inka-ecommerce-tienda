@@ -174,7 +174,7 @@ export class FilterAdvanceComponent {
       max_price: this.max_price,
       currency: this.currency,
       options_aditional: this.options_aditional,
-      search: this.search, 
+      search: this.search,
     }
     this.homeService.filterAdvanceProduct(data).subscribe((resp: any) => {
       console.log(resp);

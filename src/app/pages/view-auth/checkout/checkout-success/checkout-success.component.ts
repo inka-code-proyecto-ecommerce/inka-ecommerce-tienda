@@ -13,24 +13,24 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CheckoutSuccessComponent {
 
-  payment_id:string = '';
+  payment_id: string = '';
   preference_id: string = '';
 
-  currency:string = 'PEN';
+  currency: string = 'PEN';
   constructor(
     public cartService: CartService,
     public activedRoute: ActivatedRoute,
-    public cookieService: CookieService, 
+    public cookieService: CookieService,
     public toastr: ToastrService,
     public router: Router
   ) {
-    
+
   }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.activedRoute.queryParams.subscribe((resp:any) =>{
+    this.activedRoute.queryParams.subscribe((resp: any) => {
       console.log(resp);
       this.payment_id = resp.payment_id;
       this.preference_id = resp.preference_id;
@@ -57,11 +57,11 @@ export class CheckoutSuccessComponent {
       //   email: this.email,
       // }
     }
-    this.cartService.checkoutMercadoPago(data).subscribe((resp:any) => {
+    this.cartService.checkoutMercadoPago(data).subscribe((resp: any) => {
       console.log(resp);
 
-      this.toastr.success("Exito","La compra se a realizado");
-      this.router.navigateByUrl("/gracias-por-tu-compra/"+this.payment_id);
+      this.toastr.success("Exito", "La compra se a realizado");
+      this.router.navigateByUrl("/gracias-por-tu-compra/" + this.payment_id);
 
     })
   }
