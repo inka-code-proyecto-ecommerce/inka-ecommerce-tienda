@@ -260,14 +260,14 @@
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
-              <p>FREE Express Shipping On Orders $570+</p>
+              <p>Valor de envío, S/40 a todo el país </p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="tp-header-top-right d-flex align-items-center justify-content-end">
               <div class="tp-header-top-menu d-flex align-items-center justify-content-end">
                 <div class="tp-header-top-menu-item tp-header-lang">
-                  <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
+                 <!--  <span class="tp-header-lang-toggle" id="tp-header-lang-toggle">English</span>
                   <ul>
                     <li>
                       <a href="#">Spanish</a>
@@ -278,7 +278,7 @@
                     <li>
                       <a href="#">Portuguese</a>
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
                 <div class="tp-header-top-menu-item tp-header-currency" *ngIf="isLoading">
                   <span class="tp-header-currency-toggle" id="tp-header-currency-toggle">{{ currency }}</span>
@@ -292,19 +292,19 @@
                   </ul>
                 </div>
                 <div class="tp-header-top-menu-item tp-header-setting">
-                  <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Setting</span>
+                  <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Configuraciones</span>
                   <ul>
                     <li>
-                      <a href="profile.html">My Profile</a>
+                      <a href="/perfil-del-cliente">Ver mi perfil</a>
                     </li>
                     <li>
-                      <a href="wishlist.html">Wishlist</a>
+                      <a href="wishlist.html">Lista de deseos</a>
                     </li>
                     <li>
-                      <a href="cart.html">Cart</a>
+                      <a href="/carrito-de-compra">Carro de compras</a>
                     </li>
                     <li>
-                      <a href="#" onclick="return false" (click)="logout()">Logout</a>
+                      <a href="#" onclick="return false" (click)="logout()">Cerrar sesión</a>
                     </li>
                   </ul>
                 </div>
@@ -332,11 +332,11 @@
                 <div class="tp-header-search-wrapper d-flex align-items-center">
                   <div class="tp-header-search-box">
                     <input type="text" (keyup.enter)="searchProduct()" [(ngModel)]="searchT" name="searchT"
-                      placeholder="Search for Products...">
+                      placeholder="Buscar productos..">
                   </div>
                   <div class="tp-header-search-category">
                     <select>
-                      <option>Select Category</option>
+                      <option>Seleccioar categoría</option>
                       <option>Mobile</option>
                       <option>Digital Watch</option>
                       <option>Computer</option>
@@ -374,13 +374,13 @@
                     </span>
                   </div>
                   <div class="tp-header-login-content d-none d-xl-block" *ngIf="!user">
-                    <span>Hello, Invitado</span>
-                    <h5 class="tp-header-login-title"><a routerLink="/login">Sign In</a></h5>
+                    <span>Hola, Invitado</span>
+                    <h5 class="tp-header-login-title"><a routerLink="/login">Iniciar sesión</a></h5>
                   </div>
 
                   <div class="tp-header-login-content d-none d-xl-block" *ngIf="user">
-                    <span>Hello, {{ user.full_name }}</span>
-                    <h5 class="tp-header-login-title"><a routerLink="/perfil-del-cliente" target="_blank">Go Profile</a>
+                    <span>Hola, {{ user.full_name }}</span>
+                    <h5 class="tp-header-login-title"><a routerLink="/perfil-del-cliente" target="_blank">Ir a mi perfil</a>
                     </h5>
                   </div>
 
@@ -462,7 +462,7 @@
                         fill="currentColor" />
                     </svg>
                   </span>
-                  All Departments
+                  Todos los departamentos
                 </button>
                 <nav class="tp-category-menu-content">
                   <ul>
@@ -549,7 +549,7 @@
                 <nav class="tp-main-menu-content">
                   <ul>
                     <li class="has-dropdown has-mega-menu">
-                      <a href="index.html">Home</a>
+                      <a href="index.html">Ínicio</a>
                       <div class="home-menu tp-submenu tp-mega-menu">
                         <div class="row row-cols-1 row-cols-lg-4 row-cols-xl-5">
                           <div class="col">
@@ -754,7 +754,7 @@
                         <li><a href="blog-details.html">Blog Details</a></li>
                       </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
                   </ul>
                 </nav>
               </div>
@@ -775,8 +775,8 @@
                   </span>
                 </div>
                 <div class="tp-header-contact-content">
-                  <h5>Hotline:</h5>
-                  <p><a href="tel:402-763-282-46">+(402) 763 282 46</a></p>
+                  <h5>Línea directa:</h5>
+                  <p><a href="tel:402-763-282-46">+(51) 987 654 321</a></p>
                 </div>
               </div>
             </div>
@@ -803,7 +803,7 @@
             <nav id="mobile-menu">
               <ul>
                 <li class="has-dropdown has-mega-menu">
-                  <a href="index.html">Home</a>
+                  <a href="index.html">Inicio</a>
                   <div class="home-menu tp-submenu tp-mega-menu">
                     <div class="row row-cols-1 row-cols-lg-4 row-cols-xl-5">
                       <div class="col">
@@ -1006,7 +1006,7 @@
                     <li><a href="blog-details.html">Blog Details</a></li>
                   </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contacto</a></li>
               </ul>
             </nav>
           </div>

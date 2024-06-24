@@ -6,10 +6,10 @@
       <div class="row">
         <div class="col-xxl-12">
           <div class="breadcrumb__content p-relative z-index-1">
-            <h3 class="breadcrumb__title">Checkout</h3>
+            <h3 class="breadcrumb__title">Verificar</h3>
             <div class="breadcrumb__list">
               <span><a href="#">Home</a></span>
-              <span>Checkout</span>
+              <span>Verificar</span>
             </div>
           </div>
         </div>
@@ -76,13 +76,13 @@
               <div class="profile__address-content">
                 <h3 class="profile__address-title"> <a href="#" onclick="return false"
                     (click)="selectedAddress(addres)"> Shipping Address</a> </h3>
-                <p><span>Full Name:</span>{{ addres.name + ' '+ addres.surname }}</p>
-                <p><span>Street:</span>{{ addres.street }}</p>
-                <p><span>City:</span>{{ addres.city }}</p>
-                <p><span>Phone number:</span>{{ addres.phone }}</p>
-                <p><span>Zip code:</span> {{ addres.postcode_zip }}</p>
-                <p><span>Company:</span>{{ addres.company }}</p>
-                <p><span>Country:</span>{{ addres.country_region }}</p>
+                <p><span>Nombre completo:</span>{{ addres.name + ' '+ addres.surname }}</p>
+                <p><span>Calle:</span>{{ addres.street }}</p>
+                <p><span>Ciudad:</span>{{ addres.city }}</p>
+                <p><span>Número de teléfono:</span>{{ addres.phone }}</p>
+                <p><span>Código postal:</span> {{ addres.postcode_zip }}</p>
+                <p><span>Compañía:</span>{{ addres.company }}</p>
+                <p><span>País:</span>{{ addres.country_region }}</p>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="tp-checkout-bill-area">
-            <h3 class="tp-checkout-bill-title">Billing Details</h3>
+            <h3 class="tp-checkout-bill-title">Detalles de facturación</h3>
 
             <div class="tp-checkout-bill-form">
               <form action="#">
@@ -100,63 +100,63 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="tp-checkout-input">
-                        <label>First Name <span>*</span></label>
-                        <input type="text" name="name" [(ngModel)]="name" placeholder="First Name">
+                        <label>Nombres <span>*</span></label>
+                        <input type="text" name="name" [(ngModel)]="name" placeholder="Escriba su nombre">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="tp-checkout-input">
-                        <label>Last Name <span>*</span></label>
-                        <input type="text" name="surname" [(ngModel)]="surname" placeholder="Last Name">
+                        <label>Apellidos <span>*</span></label>
+                        <input type="text" name="surname" [(ngModel)]="surname" placeholder="Escriba su apellido">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="tp-checkout-input">
-                        <label>Company name (optional)</label>
+                        <label>Nombre de compañia (optional)</label>
                         <input type="text" name="company" [(ngModel)]="company" placeholder="Example LTD.">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="tp-checkout-input">
-                        <label>Country / Region </label>
+                        <label>País / Región</label>
                         <input type="text" name="country_region" [(ngModel)]="country_region"
-                          placeholder="United States (US)">
+                          placeholder="Estados Unidos (EE.UU.)">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="tp-checkout-input">
-                        <label>Street address</label>
+                        <label>Dirección</label>
                         <input type="text" name="address" [(ngModel)]="address"
-                          placeholder="House number and street name">
+                          placeholder="Número de casa y nombre de la calle.">
                       </div>
 
                       <div class="tp-checkout-input">
                         <input type="text" name="street" [(ngModel)]="street"
-                          placeholder="Apartment, suite, unit, etc. (optional)">
+                          placeholder="Apartamento, suite, unidad, etc. (opcional)">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="tp-checkout-input">
-                        <label>Town / City</label>
+                        <label>Pueblo / Ciudad</label>
                         <input type="text" name="city" [(ngModel)]="city" placeholder="">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="tp-checkout-input">
-                        <label>Postcode ZIP</label>
-                        <input type="text" name="postcode_zip" [(ngModel)]="postcode_zip" placeholder="">
+                        <label>Código postal</label>
+                        <input type="text" name="postcode_zip" [(ngModel)]="postcode_zip" placeholder="Escrib su código postal">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="tp-checkout-input">
-                        <label>Phone <span>*</span></label>
-                        <input type="text" name="phone" [(ngModel)]="phone" placeholder="">
+                        <label>Teléfono <span>*</span></label>
+                        <input type="text" name="phone" [(ngModel)]="phone" placeholder="Escriba su número de teléfono">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="tp-checkout-input">
-                        <label>Email address <span>*</span></label>
-                        <input type="email" name="email" [(ngModel)]="email" placeholder="">
+                        <label>Dirección de correo electrónico<span>*</span></label>
+                        <input type="email" name="email" [(ngModel)]="email" placeholder="Escriba su dirección">
                       </div>
                     </div>
                     <!-- <div class="col-md-12">
@@ -194,14 +194,14 @@
         <div class="col-lg-5">
           <!-- checkout place order -->
           <div class="tp-checkout-place white-bg">
-            <h3 class="tp-checkout-place-title">Your Order</h3>
+            <h3 class="tp-checkout-place-title">Su pedido</h3>
 
             <div class="tp-order-info-list">
               <ul>
 
                 <!-- header -->
                 <li class="tp-order-info-list-header">
-                  <h4>Product</h4>
+                  <h4>Producto</h4>
                   <h4>Total</h4>
                 </li>
 
@@ -223,19 +223,19 @@
 
                 <!-- shipping -->
                 <li class="tp-order-info-list-shipping">
-                  <span>Shipping</span>
+                  <span>Pedidos</span>
                   <div class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
                     <span>
                       <input id="flat_rate" type="radio" name="shipping">
-                      <label for="flat_rate">Flat rate: <span>$0.00</span></label>
+                      <label for="flat_rate">Tarifa plana: <span>$0.00</span></label>
                     </span>
                     <span>
                       <input id="local_pickup" type="radio" name="shipping">
-                      <label for="local_pickup">Local pickup: <span>$0.00</span></label>
+                      <label for="local_pickup">Recogida local: <span>$0.00</span></label>
                     </span>
                     <span>
                       <input id="free_shipping" type="radio" name="shipping">
-                      <label for="free_shipping">Free shipping</label>
+                      <label for="free_shipping">Envío gratis</label>
                     </span>
                   </div>
                 </li>
@@ -258,19 +258,18 @@
               </div>
               <div class="tp-checkout-payment-item paypal-payment">
                 <input type="radio" id="paypal" name="payment" checked>
-                <label for="paypal">PayPal <img src="assets/img/icon/payment-option.png" alt=""> <a href="#">What is
-                    PayPal?</a></label>
+                <label for="paypal">PayPal <img src="assets/img/icon/payment-option.png" alt=""> <a href="#">¿Qué es Paypal?</a></label>
               </div>
               <div #paypal></div>
             </div>
             <div class="tp-checkout-agree">
               <div class="tp-checkout-option">
                 <input id="read_all" type="checkbox">
-                <label for="read_all">I have read and agree to the website.</label>
+                <label for="read_all">He leído y acepto el sitio web.</label>
               </div>
             </div>
             <div class="tp-checkout-btn-wrapper">
-              <a href="#" class="tp-checkout-btn w-100">Place Order</a>
+              <a href="#" class="tp-checkout-btn w-100">Realizar pedido</a>
             </div>
           </div>
         </div>
